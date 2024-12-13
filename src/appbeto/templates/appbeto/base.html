@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>
+        {% block title %}
+        
+        {% endblock title %}
+    </title>
+</head>
+     <h1> CELEBRACIÓN NAVIDEÑA 2024 </h1> 
+        <p class="c0">
+            <img src="{% static 'appbeto/img/navidad.jpg' %}"
+                 style="width: 1300px;
+                       height: 300px">
+        </p>
+    
+    {% block extension %}
+
+    {% endblock extension %}

@@ -1,0 +1,20 @@
+{% extends 'appbeto/base.html' %}
+{% load static %}
+
+{% block title %}
+        familiares
+{% endblock title %}
+
+{% block extension %}
+<h2> LISTA DE ASISTENTES </h2> 
+    <ul>
+        {% for indice in id_familiar %}
+            <li>{{indice}}</li>
+        {% endfor %}
+    </ul>
+    <p></p>
+    <a href="{% url 'appbeto:familiar_form' %}">Agregar Asistentes</a>
+    <p></p>
+    <a href="{% url 'appbeto:inicio' %}">Regresar a Inicio</a>
+       
+{% endblock extension %}

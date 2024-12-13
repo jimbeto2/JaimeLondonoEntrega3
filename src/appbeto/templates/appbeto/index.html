@@ -1,0 +1,16 @@
+{% extends 'appbeto/base.html' %}
+{% load static %}
+
+{% block title %}
+        inicio
+{% endblock title %}
+
+{% block extension %}
+    <p></p>
+    <a href="{% url 'appbeto:familiar_list' %}">Familiares e Invitados</a>
+    <p></p>
+    <a href="{% url 'appbeto:regalo_list' %}">Regalos</a>
+    <p></p>
+    <a href="{% url 'appbeto:menu_list' %}">Menu de la Cena</a>
+{% endblock extension %}
+

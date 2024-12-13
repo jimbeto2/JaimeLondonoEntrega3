@@ -1,0 +1,20 @@
+{% extends 'appbeto/base.html' %}
+{% load static %}
+
+{% block title %}
+        menu cena
+{% endblock title %}
+
+{% block extension %}
+<h2> MENU PARA LA CENA </h2> 
+    <ul>
+        {% for indice in id_menu %}
+            <li>{{indice}}</li>
+        {% endfor %}
+    </ul>
+    <p></p>
+    <a href="{% url 'appbeto:menu_form' %}">Agregar Menú</a>
+    <p></p>
+    <a href="{% url 'appbeto:inicio' %}">Regresar a Inicio</a>
+       
+{% endblock extension %}

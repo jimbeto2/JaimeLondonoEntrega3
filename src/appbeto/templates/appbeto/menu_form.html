@@ -1,0 +1,22 @@
+{% extends 'appbeto/base.html' %}
+{% load static %}
+
+{% block title %}
+        regalo_form
+{% endblock title %}
+
+{% block extension %}
+
+<p class="c0">
+    <span class="c6">ESCRIBE EL MENU ESCOGIDO POR CADA PARTICIPANTE</span>
+</p>
+    <form method="post">
+        {% csrf_token %}
+        {{id_form.as_table}}
+        <button type="submit"> Enviar </button>
+
+    </form> 
+
+    <a href="{% url 'appbeto:inicio' %}">Regresar a Inicio</a>
+
+{% endblock extension %}
