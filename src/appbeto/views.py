@@ -24,6 +24,15 @@ def familiar_form(request):
 			return redirect ("appbeto:familiar_list")
 	return render(request, 'appbeto/familiar_form.html', {'id_form':form})
 
+def familiar_editar(request):
+	edita = models.Familiar.objects.all()
+	return render(request, 'appbeto/familiar_editar.html', {'id_familiar':edita})
+
+def familiar_borrar(request, indice):
+	borrado = models.Familiar.objects.get()
+	borrado.delete()
+	return render(request, 'appbeto/familiar_list.html', {'id_familiar':indice})
+
 def regalo_list(request):
 	indice = models.Regalo.objects.all()
 	return render(request, 'appbeto/regalo_list.html', {'id_regalo':indice})

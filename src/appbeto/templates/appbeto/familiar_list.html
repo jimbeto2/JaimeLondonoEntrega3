@@ -9,11 +9,20 @@
 <h2> LISTA DE ASISTENTES </h2> 
     <ul>
         {% for indice in id_familiar %}
-            <li>{{indice}}</li>
+            <li>{{indice}}
+                <button>
+                    <a href="{% url 'appbeto:familiar_editar' %}"> Modificar</a>
+                </button>
+                <button>
+                    <a href="{% url 'appbeto:familiar_list'%}"> Borrar</a>
+                </button>
+            </li>
         {% endfor %}
     </ul>
     <p></p>
     <a href="{% url 'appbeto:familiar_form' %}">Agregar Asistentes</a>
+    <p></p>
+    <a href="{% url 'appbeto:familiar_editar' %}">Editar Asistentes</a>
     <p></p>
     <a href="{% url 'appbeto:inicio' %}">Regresar a Inicio</a>
        

@@ -1,0 +1,20 @@
+{% extends 'appbeto/base.html' %}
+{% load static %}
+
+{% block title %}
+        familiares
+{% endblock title %}
+
+{% block extension %}
+<h2> SELECCIONA EL CAMPO A EDITAR </h2> 
+    <ul>
+        {% for indice in id_familiar %}
+            <li>{{indice}}
+            </li>
+    
+        {% endfor %}
+    </ul>
+    <p></p>
+    <a href="{% url 'appbeto:familiar_list' %}">Regresar a Lista</a>
+       
+{% endblock extension %}
