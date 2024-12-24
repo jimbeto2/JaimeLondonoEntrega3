@@ -7,12 +7,12 @@ from . import forms, models
 def inicio(request):
 	return render(request, 'appbeto/index.html')
 
-#def positronix(request):
-#	return render(request, 'appbeto/positronix.html')
 
 def familiar_list(request):
 	indice = models.Familiar.objects.all()
 	return render(request, 'appbeto/familiar_list.html', {'id_familiar':indice})
+
+# creacion de registros nuevos
 
 def familiar_form(request):
 	if request.method == 'GET':
@@ -24,14 +24,24 @@ def familiar_form(request):
 			return redirect ("appbeto:familiar_list")
 	return render(request, 'appbeto/familiar_form.html', {'id_form':form})
 
-def familiar_editar(request):
-	edita = models.Familiar.objects.all()
-	return render(request, 'appbeto/familiar_editar.html', {'id_familiar':edita})
+# Edicion de registros existentes
 
-def familiar_borrar(request, indice):
-	borrado = models.Familiar.objects.get()
+def familiar_editar(request, indice:int):
+	edicion = models.Familiar.objects.get(id=indice)
+	if request.method == 'GET':
+		form = forms.FamiliarForm(instance=edicion)
+	if request.method == 'POST':
+		form = forms.FamiliarForm(request.POST, instance=edicion)
+		if form.is_valid():
+			form.save()
+			return redirect ("appbeto:familiar_list")
+	return render(request, 'appbeto/familiar_form.html', {'id_form':form})
+
+
+def familiar_borrar(request, indice:int):
+	borrado = models.Familiar.objects.get(id=indice)
 	borrado.delete()
-	return render(request, 'appbeto/familiar_list.html', {'id_familiar':indice})
+	return redirect ("appbeto:familiar_list")
 
 def regalo_list(request):
 	indice = models.Regalo.objects.all()
