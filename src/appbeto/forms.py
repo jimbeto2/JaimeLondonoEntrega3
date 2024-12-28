@@ -1,12 +1,20 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.models import User
 from . import models
 
 class LoginForm(AuthenticationForm):
     class Meta:
         model = AuthenticationForm
-      #  fields = ['username', 'password']
+        fields = ['username', 'password']
       #todavia no estoy seguro de que estos campos se requieran
+
+class CrearUsuarioForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password1', 'password2']
+    #todavia no estoy seguro de que estos campos se requieran
+
 
 class FamiliarForm(forms.ModelForm):
     class Meta:

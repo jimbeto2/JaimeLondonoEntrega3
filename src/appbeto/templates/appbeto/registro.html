@@ -2,18 +2,16 @@
 {% load static %}
 
 {% block title %}
-        login
+        registro
 {% endblock title %}
 
 {% block extension %}
+    <h1> Registro de usuario</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form }} 
-        <button type="submit">Iniciar Sesión</button>
+        {{ form.as_p }} 
+        <button type="submit">Registrarme</button>
     </form>
-    <p>
-        <a href="{% url 'appbeto:registrar' %}">Registrarme</a>
-    </p>
     <p></p>
     <a href="{% url 'appbeto:inicio' %}">Regresar a Inicio</a>
        

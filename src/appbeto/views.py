@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
-#from django.contrib.auth.forms import AuthenticationForm
+from django.views.generic import CreateView
 from . import forms, models
 
 # Create your views here.
@@ -22,6 +22,18 @@ class LoginVista(LoginView):
 			self.request, f'Inicio de Sesión Exitoso, Bienvenido {usuario.username}'
 		)
 		return super().form_valid(form)
+
+class Registrarme(CreateView):
+	form_class = forms.CrearUsuarioForm
+	template_name = 'appbeto/registro.html'
+	success_url = reverse_lazy('appbeto:login')
+	
+	def form_valid(self, form: forms.LoginForm):
+		messages.success(
+			self.request, f'Registro de Usuario Exitoso, Puedes Iniciar Sesión'
+		)
+		return super().form_valid(form)
+
 
 def familiar_list(request):
 	indice = models.Familiar.objects.all()
