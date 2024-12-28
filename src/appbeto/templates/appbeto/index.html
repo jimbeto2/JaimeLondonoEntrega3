@@ -13,15 +13,5 @@
     <p></p>
     <a href="{% url 'appbeto:menu_listado' %}">Menu de la Cena</a>
     <p></p>
-
-    {% if user.is_authenticated%}
-        <form action="{% url 'appbeto:salida' %}" method="post">
-            {% csrf_token %}
-            <button type= "submit"> Cerrar Sesión</button>
-        </form>
-    {% else %}
-        <a href="{% url 'appbeto:login' %}">Iniciar Sesión</a>
-    {% endif %}
-
 {% endblock extension %}
 
