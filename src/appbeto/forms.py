@@ -13,7 +13,11 @@ class CrearUsuarioForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2']
-    #todavia no estoy seguro de que estos campos se requieran
+
+class ActualizaUserForm(forms.ModelForm):
+   class Meta:
+        model = User
+        fields = ['username', 'email', 'first_name', 'last_name']
 
 
 class FamiliarForm(forms.ModelForm):

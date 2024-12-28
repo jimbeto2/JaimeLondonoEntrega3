@@ -1,9 +1,10 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.urls import reverse_lazy
-from django.contrib.auth.views import LoginView
 from django.contrib import messages
-from django.views.generic import CreateView
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.models import User
+from django.views.generic import CreateView, UpdateView
 from . import forms, models
 
 # Create your views here.
@@ -34,8 +35,23 @@ class Registrarme(CreateView):
 		)
 		return super().form_valid(form)
 
-#def salida(solicitud):
-#	return render(solicitud, 'appbeto/logout.html')
+class Actualizar(UpdateView):
+	model = User
+	form_class = forms.ActualizaUserForm
+	template_name = 'appbeto/actualizar.html'
+	success_url = reverse_lazy('appbeto:inicio')
+
+	def get_object(self):
+		#regresa el usuario actual
+		return self.request.user
+
+	def form_valid(self, form: forms.LoginForm):
+		messages.success(
+			self.request, f'Actualización de Datos Exitosa'
+		)
+		return super().form_valid(form)
+
+
 
 def familiar_list(request):
 	indice = models.Familiar.objects.all()

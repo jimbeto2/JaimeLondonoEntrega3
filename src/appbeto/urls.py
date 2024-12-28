@@ -11,6 +11,7 @@ urlpatterns = [
     #se pone el as_view pq LoginVista es una Clase y no una funcion
     path('logout/', LogoutView.as_view(template_name='appbeto/logout.html'), name='salida'),
     path('registro/', views.Registrarme.as_view(), name='registrar'),
+    path('actualizar/', views.Actualizar.as_view(), name='actualizauser'),
     path('familiar/list/', views.familiar_list, name='familiar_listado'),
     path('familiar/form/', views.familiar_form, name='familiar_form'),
     path('familiar/editar/<int:indice>', views.familiar_editar, name='familiar_editar'),

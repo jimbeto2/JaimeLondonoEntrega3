@@ -1,0 +1,18 @@
+{% extends 'appbeto/base.html' %}
+{% load static %}
+
+{% block title %}
+        perfil
+{% endblock title %}
+
+{% block extension %}
+    <h1> Actualizar Perfil de Usuario</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }} 
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    <p></p>
+    <a href="{% url 'appbeto:inicio' %}">Regresar a Inicio</a>
+       
+{% endblock extension %}
