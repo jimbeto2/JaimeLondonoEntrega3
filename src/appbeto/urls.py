@@ -1,5 +1,6 @@
 
 from django.urls import path
+from django.contrib.auth.views import LogoutView
 from . import views
 
 app_name = 'appbeto'
@@ -8,6 +9,7 @@ urlpatterns = [
     path('', views.inicio, name='inicio'),
     path('login/', views.LoginVista.as_view(), name='login'),
     #se pone el as_view pq LoginVista es una Clase y no una funcion
+    path('logout/', LogoutView.as_view(template_name='appbeto/logout.html'), name='salida'),
     path('registro/', views.Registrarme.as_view(), name='registrar'),
     path('familiar/list/', views.familiar_list, name='familiar_listado'),
     path('familiar/form/', views.familiar_form, name='familiar_form'),

@@ -34,6 +34,8 @@ class Registrarme(CreateView):
 		)
 		return super().form_valid(form)
 
+#def salida(solicitud):
+#	return render(solicitud, 'appbeto/logout.html')
 
 def familiar_list(request):
 	indice = models.Familiar.objects.all()
