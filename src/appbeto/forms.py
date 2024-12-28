@@ -1,5 +1,12 @@
 from django import forms
+from django.contrib.auth.forms import AuthenticationForm
 from . import models
+
+class LoginForm(AuthenticationForm):
+    class Meta:
+        model = AuthenticationForm
+      #  fields = ['username', 'password']
+      #todavia no estoy seguro de que estos campos se requieran
 
 class FamiliarForm(forms.ModelForm):
     class Meta:
@@ -18,3 +25,5 @@ class MenuForm(forms.ModelForm):
         model = models.Menu
         fields = "__all__"
        
+
+
