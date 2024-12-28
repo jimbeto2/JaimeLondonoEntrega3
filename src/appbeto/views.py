@@ -15,6 +15,10 @@ from . import forms, models
 def inicio(solicitud):
 	return render(solicitud, 'appbeto/index.html')
 
+@login_not_required
+def about(solicitud):
+	return render(solicitud, 'appbeto/about.html')
+
 class LoginVista(LoginView):
 	authentication_form = forms.LoginForm
 	template_name = 'appbeto/login.html'

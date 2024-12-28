@@ -7,6 +7,7 @@ app_name = 'appbeto'
 
 urlpatterns = [
     path('', views.inicio, name='inicio'),
+    path('about/', views.about, name='sobremi'),
     path('login/', views.LoginVista.as_view(), name='login'),
     #se pone el as_view pq LoginVista es una Clase y no una funcion
     path('logout/', LogoutView.as_view(template_name='appbeto/logout.html'), name='salida'),

@@ -1,4 +1,4 @@
-# Pre-Entrega
+# Proyecto Final
 
 ## Curso
 
@@ -13,9 +13,8 @@
 
 ## Objetivos del Proyecto
 
-- Desarrollar una app web que permita cargar los invitados a la celebración navideña de 2024
-- La app debera permitir cargar los regalos que cada invitado le ha pedido a Santa
-- La app debe tambien cargar el menú de la cena que cada invitado seleccione
+- Desarrollar una app web tipo blog que permita creacion de usuarios y sus paginas
+- 
 
 ## Aspectos Técnicos
 - Realicé todo el proyecto de forma local sin copia desde GitHub
