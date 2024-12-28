@@ -6,10 +6,16 @@
 {% endblock title %}
 
 {% block extension %}
+
+<div style="font-family: inherit; text-align: center">
+    <span style="font-size: 30px"> 
+        <p> Ingresa tu Usuario y Contraseña</p>      
+    </span>
+</div>
     <form method="post">
         {% csrf_token %}
         {{ form }} 
-        <button type="submit">Iniciar Sesión</button>
+        <button type="submit">Ingreso</button>
     </form>
     <p>
         <a href="{% url 'appbeto:registrar' %}">Registrarme</a>

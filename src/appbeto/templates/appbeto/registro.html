@@ -6,7 +6,11 @@
 {% endblock title %}
 
 {% block extension %}
-    <h1> Registro de usuario</h1>
+<div style="font-family: inherit; text-align: center">
+    <span style="font-size: 30px"> 
+        <p> Registro de usuario</p>
+    </span>
+</div>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }} 

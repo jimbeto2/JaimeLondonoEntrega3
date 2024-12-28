@@ -11,27 +11,42 @@
 
     </head>
     <h1 style="text-align: center">*** The Blog House ***</h1>
-    {% for message in messages %}<p>{{ message }}</p>{% endfor %}
+    
     {% if user.is_authenticated %}
-        <a href="{% url 'appbeto:actualizauser' %}">Editar Perfil</a>
-        <form action="{% url 'appbeto:salida' %}" method="post">
-            {% csrf_token %}
-            <button type= "submit">Cerrar Sesión</button>
-        </form>
+        <div style="font-family: inherit; text-align: right">
+        <span style="font-size: 20px"> &nbsp;        
+            <form action="{% url 'appbeto:actualizauser' %}" method="get">
+                {% csrf_token %}
+                <button type= "submit">Editar Perfil</button>
+            </form>
+            <form action="{% url 'appbeto:salida' %}" method="post">
+                {% csrf_token %}
+                <button type= "submit">Cerrar Sesión</button>
+            </form>
+        </div>
+    
     {% else %}
-
     <div style="font-family: inherit; text-align: right">
         <span style="font-size: 20px"> &nbsp; 
             <a href="{% url 'appbeto:login' %}">Iniciar Sesión</a> &nbsp; &nbsp;
             <a href="{% url 'appbeto:sobremi' %}">Sobre Mí</a>
         </span>
     </div>
-
     {% endif %}
+
     <p class="c0">
         <img src="{% static 'appbeto/img/coder.png' %}"
              style="width: 1270px;
                     height: 450px">
     </p>
+    
+    {% for message in messages %}
+    <div style="font-family: inherit; text-align: center">
+        <span style="font-size: 24px"> 
+            <p>{{ message }}</p>
+        </span>
+    </div>
+    {% endfor %}
+
     {% block extension %}
     {% endblock extension %}
