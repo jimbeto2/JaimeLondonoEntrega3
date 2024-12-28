@@ -1,14 +1,17 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_not_required 
 from django.views.generic import CreateView, UpdateView
 from . import forms, models
 
 # Create your views here.
 
+@login_not_required
 def inicio(solicitud):
 	return render(solicitud, 'appbeto/index.html')
 
@@ -24,6 +27,7 @@ class LoginVista(LoginView):
 		)
 		return super().form_valid(form)
 
+@method_decorator(login_not_required, name= 'dispatch')
 class Registrarme(CreateView):
 	form_class = forms.CrearUsuarioForm
 	template_name = 'appbeto/registro.html'
@@ -50,7 +54,6 @@ class Actualizar(UpdateView):
 			self.request, f'Actualización de Datos Exitosa'
 		)
 		return super().form_valid(form)
-
 
 
 def familiar_list(request):

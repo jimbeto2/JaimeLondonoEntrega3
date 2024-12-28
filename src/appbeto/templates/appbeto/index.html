@@ -6,6 +6,8 @@
 {% endblock title %}
 
 {% block extension %}
+
+{% if user.is_authenticated%}
     <p></p>
     <a href="{% url 'appbeto:familiar_listado' %}">Familiares e Invitados</a>
     <p></p>
@@ -13,5 +15,8 @@
     <p></p>
     <a href="{% url 'appbeto:menu_listado' %}">Menu de la Cena</a>
     <p></p>
+{% endif %}
+
+
 {% endblock extension %}
 
