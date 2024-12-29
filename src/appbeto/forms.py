@@ -19,6 +19,11 @@ class ActualizaUserForm(forms.ModelForm):
         model = User
         fields = ['username', 'email', 'first_name', 'last_name']
 
+class MisBlog_Form(forms.ModelForm):
+    class Meta:
+        model = models.MisBlog
+        fields = "__all__"
+
 
 class FamiliarForm(forms.ModelForm):
     class Meta:

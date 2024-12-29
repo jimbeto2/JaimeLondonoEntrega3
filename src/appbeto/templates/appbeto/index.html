@@ -8,22 +8,20 @@
 {% block extension %}
 
 {% if user.is_authenticated%}
-    <div style="font-family: inherit; text-align: center">
-        <span style="font-size: 30px"> 
+    <div style="font-size: 30px; text-align: center"> 
             <p> Tenemos Estos Blogs Disponibles Para Tí</p>      
-      </span>
     </div>
-    <div class="card-body">
+      <div class="card-body">
         <div class="table-responsive">
             <table class="table table-hover align-middle">
                 <thead class="table-light">
                     <tr>
-                        <th>Id</th>
+                        <th>Blog</th>
                         <th>Categoría</th>
                         <th>Título</th>
                         <th>Actualizado</th>
                         <th>Autor</th>
-                        <th class="text-end">Acciones</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,10 +34,10 @@
                             <td>{{ indice.nick }}</td>
                             <td>
                                 <button>
-                                    <a href="{% url 'appbeto:familiar_editar' indice.id %}"> Visitar</a>
+                                    <a href="{% url 'appbeto:familiar_borrar' indice.id %}"> Visitar</a>
                                 </button>
                                 <button>
-                                    <a href="{% url 'appbeto:familiar_editar' indice.id %}"> Modificar</a>
+                                    <a href="{% url 'appbeto:misblog_edit' indice.id %}"> Modificar</a>
                                 </button>
                                 {% if user.is_staff %}
                                     <button>

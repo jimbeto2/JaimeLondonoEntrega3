@@ -62,15 +62,6 @@ class Actualizar(UpdateView):
 
 # Listado de Blogs disponibles
 
-"""
-Creo que esto no lo necesito como clase vamos a ver...
-class MisBlog(ListView):
-	model =  models.MisBlogs
-	indice = models.MisBlogs.objects.all()
-	def misblogs_lista(request):
-		return render(request, 'appbeto/misblog_list.html', {'id_blog':indice})	
-	
-"""
 def familiar_list(request):
 	indice = models.Familiar.objects.all()
 	return render(request, 'appbeto/familiar_list.html', {'id_familiar':indice})
@@ -88,6 +79,20 @@ def familiar_form(solicitud):
 	return render(solicitud, 'appbeto/familiar_form.html', {'id_form':form})
 
 # Edicion de Blogs existentes
+
+def MisBlog_edit(solicitud, indice:int):
+	edicion = models.MisBlog.objects.get(id=indice)
+	if solicitud.method == 'GET':
+		form = forms.MisBlog_Form(instance=edicion)
+	if solicitud.method == 'POST':
+		form = forms.MisBlog_Form(solicitud.POST, instance=edicion)
+		if form.is_valid():
+			form.save()
+			return redirect ("appbeto:inicio")
+	return render(solicitud, 'appbeto/misblog_edit.html', {'id_form':form})		
+
+
+
 
 def familiar_editar(request, indice:int):
 	edicion = models.Familiar.objects.get(id=indice)
