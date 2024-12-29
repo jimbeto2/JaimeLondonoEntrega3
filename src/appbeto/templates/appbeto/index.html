@@ -26,7 +26,7 @@
                         <th>Acciones</th>
                         {% if user.is_staff %}
                             <th>
-                                <a href="{% url 'appbeto:misblog_crear' %}"> Crear Nuevo Blog</a>     
+                                <a href="{% url 'appbeto:misblog_crear' %}">Crear Nuevo</a>     
                             </th>
                         {% endif %}
                     </tr>
@@ -46,6 +46,8 @@
                                 <button>
                                     <a href="{% url 'appbeto:misblog_edit' indice.id %}"> Modificar</a>
                                 </button>
+                            </td>
+                            <td>
                                 {% if user.is_staff %}
                                     <button>
                                         <a href="{% url 'appbeto:misblog_borrar' indice.id %}"> Eliminar</a>
