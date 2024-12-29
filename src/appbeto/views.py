@@ -11,6 +11,7 @@ from . import forms, models
 
 # Create your views here.
 
+# VISTA INICIAL
 @login_not_required
 def inicio(solicitud):
 	indice = models.MisBlog.objects.all()
@@ -20,6 +21,7 @@ def inicio(solicitud):
 def about(solicitud):
 	return render(solicitud, 'appbeto/about.html')
 
+# GESTION DE USUARIOS
 class LoginVista(LoginView):
 	authentication_form = forms.LoginForm
 	template_name = 'appbeto/login.html'
@@ -60,25 +62,10 @@ class Actualizar(UpdateView):
 		)
 		return super().form_valid(form)
 
-# Listado de Blogs disponibles
 
-def familiar_list(request):
-	indice = models.Familiar.objects.all()
-	return render(request, 'appbeto/familiar_list.html', {'id_familiar':indice})
+# GESTION DE BLOGS
 
-# Creacion de Blogs nuevos
-
-def familiar_form(solicitud):
-	if solicitud.method == 'GET':
-		form = forms.FamiliarForm()
-	if solicitud.method == 'POST':
-		form = forms.FamiliarForm(solicitud.POST)
-		if form.is_valid():
-			form.save()
-			return redirect ("appbeto:familiar_listado")
-	return render(solicitud, 'appbeto/familiar_form.html', {'id_form':form})
-
-# Edicion de Blogs existentes
+# Edicion Datos y Borrado de Blog
 
 def MisBlog_edit(solicitud, indice:int):
 	edicion = models.MisBlog.objects.get(id=indice)
@@ -91,6 +78,36 @@ def MisBlog_edit(solicitud, indice:int):
 			return redirect ("appbeto:inicio")
 	return render(solicitud, 'appbeto/misblog_edit.html', {'id_form':form})		
 
+def MisBlog_borrar(request, indice:int):
+	borrado = models.MisBlog.objects.get(id=indice)
+	borrado.delete()
+	return redirect ("appbeto:inicio")
+
+# Creación de nuevos Blog
+def MisBlog_crear(solicitud):
+	if solicitud.method == 'GET':
+		form = forms.MisBlog_Form()
+	if solicitud.method == 'POST':
+		form = forms.MisBlog_Form(solicitud.POST)
+		if form.is_valid():
+			form.save()
+			return redirect ("appbeto:inicio")
+	return render(solicitud, 'appbeto/misblog_form.html', {'id_form':form})
+
+
+
+#ELIMINAR DESDE AQUI
+
+#CREAR NUEVas entradas
+def familiar_form(solicitud):
+	if solicitud.method == 'GET':
+		form = forms.FamiliarForm()
+	if solicitud.method == 'POST':
+		form = forms.FamiliarForm(solicitud.POST)
+		if form.is_valid():
+			form.save()
+			return redirect ("appbeto:familiar_listado")
+	return render(solicitud, 'appbeto/familiar_form.html', {'id_form':form})
 
 
 
@@ -111,6 +128,11 @@ def familiar_borrar(request, indice:int):
 	borrado.delete()
 	return redirect ("appbeto:familiar_listado")
 
+
+
+def familiar_list(request):
+	indice = models.Familiar.objects.all()
+	return render(request, 'appbeto/familiar_list.html', {'id_familiar':indice})
 
 
 def regalo_list(request):
@@ -141,3 +163,4 @@ def menu_form(request):
 			form.save()
 			return redirect ("appbeto:menu_listado")
 	return render(request, 'appbeto/menu_form.html', {'id_form':form})
+

@@ -1,0 +1,24 @@
+{% extends 'appbeto/base.html' %}
+{% load static %}
+
+{% block title %}
+        MisBlog_Form
+{% endblock title %}
+
+{% block extension %}
+
+<p class="c0">
+    <span class="c6">AGREGA/EDITA LOS CAMPOS DE TU INTERÉS</span>
+</p>
+    <form method="post">
+        {% csrf_token %}
+        {{id_form.as_table}}
+        <button type="submit"> Enviar </button>
+
+    </form> 
+<p></p>
+
+<a href="{% url 'appbeto:inicio' %}">Regresar a Lista</a>
+
+{% endblock extension %}
+

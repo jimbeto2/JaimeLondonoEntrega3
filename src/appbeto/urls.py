@@ -14,6 +14,8 @@ urlpatterns = [
     path('registro/', views.Registrarme.as_view(), name='registrar'),
     path('actualizar/', views.Actualizar.as_view(), name='actualizauser'),
     path('misblog_editar/<int:indice>', views.MisBlog_edit, name='misblog_edit'),
+    path('misblog/borrar/<int:indice>', views.MisBlog_borrar, name='misblog_borrar'),
+    path('misblog/crear/', views.MisBlog_crear, name='misblog_crear'),
 
     path('familiar/list/', views.familiar_list, name='familiar_listado'),
     path('familiar/form/', views.familiar_form, name='familiar_form'),
