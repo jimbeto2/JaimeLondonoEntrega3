@@ -34,27 +34,28 @@
                             <td>{{ indice.titulo }}</td>
                             <td>{{ indice.fecha }}</td>
                             <td>{{ indice.nick }}</td>
-                            <td>
-                                <button>
-                                    <a href="{% url 'appbeto:familiar_editar' indice.id %}"> Visitar</a>
-                                </button>
-                                <button>
-                                    <a href="{% url 'appbeto:familiar_editar' indice.id %}"> Modificar</a>
-                                </button>
-                                {% if user.is_staff %}
-                                    <button>
-                                        <a href="{% url 'appbeto:familiar_borrar' indice.id %}"> Eliminar</a>
-                                    </button>
-                                {% endif %}
-                            </td>
+      
+                            
+    <ul>
+     {% for indice in id_blog %}
+            <li>
+                {{indice}}
+                <button>
+                    <a href="{% url 'appbeto:familiar_editar' indice.id %}"> Visitar</a>
+                </button>
+                <button>
+                    <a href="{% url 'appbeto:familiar_editar' indice.id %}"> Modificar</a>
+                </button>
+                {% if user.is_staff %}
+                    <button>
+                        <a href="{% url 'appbeto:familiar_borrar' indice.id %}"> Eliminar</a>
+                    </button>
+                {% endif %}
+            </li>
 
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-
+     {% endfor %}
+    </ul>
+    <p></p>
 {% endif %}
 
 {% endblock extension %}

@@ -6,17 +6,17 @@
 {% endblock title %}
 
 {% block extension %}
-<h2> LISTA FAMILIARES</h2> 
+<h2> LISTA BLOGS</h2> 
     <ul>
-        {% for indice in id_familiar %}
+        {% for indice in id_blog %}
             <li>
                 {{indice}}
                 <button>
-                    <a href="{% url 'appbeto:familiar_editar' indice.id %}"> Modificar</a>
+                    <a href="{% url 'appbeto:inicio' %}"> Modificar</a>
                 </button>
                 {% if user.is_staff %}
                     <button>
-                        <a href="{% url 'appbeto:familiar_borrar' indice.id %}"> Borrar</a>
+                        <a href="{% url 'appbeto:inicio'%}"> Borrar</a>
                     </button>
                 {% endif %}
             </li>

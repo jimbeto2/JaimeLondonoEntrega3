@@ -13,18 +13,23 @@
     <h1 style="text-align: center">*** The Blog House ***</h1>
     
     {% if user.is_authenticated %}
+
         <div style="font-family: inherit; text-align: right">
-        <span style="font-size: 20px"> &nbsp;        
-            <form action="{% url 'appbeto:actualizauser' %}" method="get">
-                {% csrf_token %}
-                <button type= "submit">Editar Perfil</button>
-            </form>
-            <form action="{% url 'appbeto:salida' %}" method="post">
-                {% csrf_token %}
-                <button type= "submit">Cerrar Sesión</button>
-            </form>
+            <table>
+               <tr>             
+                   <form action="{% url 'appbeto:actualizauser' %}" method="get">
+                       {% csrf_token %}
+                       <button type= "submit">Editar Perfil</button>
+                   </form>
+                   <form action="{% url 'appbeto:salida' %}" method="post">
+                       {% csrf_token %}
+                       <button type= "submit">Cerrar Sesión</button>
+                   </form>
+               </tr>
+            </table>
+
         </div>
-    
+        
     {% else %}
     <div style="font-family: inherit; text-align: right">
         <span style="font-size: 20px"> &nbsp; 
@@ -37,7 +42,7 @@
     <p class="c0">
         <img src="{% static 'appbeto/img/coder.png' %}"
              style="width: 1270px;
-                    height: 450px">
+                    height: 400px">
     </p>
     
     {% for message in messages %}

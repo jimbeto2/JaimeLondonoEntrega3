@@ -4,16 +4,17 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.contrib.auth.views import LoginView
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_not_required 
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, ListView
 from . import forms, models
 
 # Create your views here.
 
 @login_not_required
 def inicio(solicitud):
-	return render(solicitud, 'appbeto/index.html')
+	indice = models.MisBlog.objects.all()
+	return render(solicitud, 'appbeto/index.html', {'id_blog':indice})
 
 @login_not_required
 def about(solicitud):
@@ -59,12 +60,22 @@ class Actualizar(UpdateView):
 		)
 		return super().form_valid(form)
 
+# Listado de Blogs disponibles
 
+"""
+Creo que esto no lo necesito como clase vamos a ver...
+class MisBlog(ListView):
+	model =  models.MisBlogs
+	indice = models.MisBlogs.objects.all()
+	def misblogs_lista(request):
+		return render(request, 'appbeto/misblog_list.html', {'id_blog':indice})	
+	
+"""
 def familiar_list(request):
 	indice = models.Familiar.objects.all()
 	return render(request, 'appbeto/familiar_list.html', {'id_familiar':indice})
 
-# creacion de registros nuevos
+# Creacion de Blogs nuevos
 
 def familiar_form(solicitud):
 	if solicitud.method == 'GET':
@@ -76,7 +87,7 @@ def familiar_form(solicitud):
 			return redirect ("appbeto:familiar_listado")
 	return render(solicitud, 'appbeto/familiar_form.html', {'id_form':form})
 
-# Edicion de registros existentes
+# Edicion de Blogs existentes
 
 def familiar_editar(request, indice:int):
 	edicion = models.Familiar.objects.get(id=indice)
@@ -94,6 +105,8 @@ def familiar_borrar(request, indice:int):
 	borrado = models.Familiar.objects.get(id=indice)
 	borrado.delete()
 	return redirect ("appbeto:familiar_listado")
+
+
 
 def regalo_list(request):
 	indice = models.Regalo.objects.all()
