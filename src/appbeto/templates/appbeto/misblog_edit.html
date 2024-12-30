@@ -10,7 +10,7 @@
 <p class="c0">
     <span class="c6">AGREGA/EDITA LOS CAMPOS DE INTERÉS</span>
 </p>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{id_form.as_table}}
         <button type="submit"> Enviar </button>

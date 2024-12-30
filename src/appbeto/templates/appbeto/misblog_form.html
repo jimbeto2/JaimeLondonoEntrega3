@@ -10,15 +10,14 @@
 <p class="c0">
     <span class="c6">AGREGA/EDITA LOS CAMPOS DE TU INTERÉS</span>
 </p>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{id_form.as_table}}
         <button type="submit"> Enviar </button>
 
     </form> 
-<p></p>
-
-<a href="{% url 'appbeto:inicio' %}">Regresar a Lista</a>
+</p>
+    <a href="{% url 'appbeto:inicio' %}">Regresar a Lista</a>
 
 {% endblock extension %}
 

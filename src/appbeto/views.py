@@ -72,7 +72,7 @@ def MisBlog_edit(solicitud, indice:int):
 	if solicitud.method == 'GET':
 		form = forms.MisBlog_Form(instance=edicion)
 	if solicitud.method == 'POST':
-		form = forms.MisBlog_Form(solicitud.POST, instance=edicion)
+		form = forms.MisBlog_Form(solicitud.POST, solicitud.FILES, instance=edicion)
 		if form.is_valid():
 			form.save()
 			return redirect ("appbeto:inicio")
@@ -85,10 +85,11 @@ def MisBlog_borrar(request, indice:int):
 
 # Creación de nuevos Blog
 def MisBlog_crear(solicitud):
+	nuevo = models.MisBlog.objects.get()
 	if solicitud.method == 'GET':
 		form = forms.MisBlog_Form()
 	if solicitud.method == 'POST':
-		form = forms.MisBlog_Form(solicitud.POST)
+		form = forms.MisBlog_Form(solicitud.POST, solicitud.FILES)
 		if form.is_valid():
 			form.save()
 			return redirect ("appbeto:inicio")
