@@ -14,18 +14,18 @@
 ## Objetivos del Proyecto
 
 - Desarrollar una app web tipo blog que permita creacion de usuarios y sus paginas
-- 
+
 
 ## Aspectos Técnicos
-- Realicé todo el proyecto de forma local sin copia desde GitHub
-- Cuando quise "subirlo" a GitHub no logre poder vincular un nuevo proyecto utilizando mi copia local
-- Tuve que crear un nuevo proyecto en GitHub clonarlo en mi Laptop y volver a realizar todo
-- para lograr la sincronización de mi copia local con la de la nube, este será un aspecto nuevo para aprender.
+- A los usuarios que recien ingresan a la pagina les debe exigir registro y/o login para poder visualizar
+- Se incluyen opciones diferenciales para usuarios registrados como ver, borrar y editar segun el perfil del usuario que ha ingresado
+
 
 ## Puntos a Mejorar
-- Interfaz grafica con más animaciones y graficas (por falta de gusto y tiempo no lo he hecho :-)
-- Validación de usuarios que ya hayan sido cargados y restringir duplicados
-- Permitir busqueda en la DB (Nota: No solicitado para esta entrega)
+- Interfaz grafica con más animaciones y graficas. La verdad es que esta parte de imaginación y desarrollo gráfico no es mi fortaleza :-)
+- Seguir profundizando en Python, con el desarrollo de este proyecto me di cuenta de que debo seguir practicando mucho mas para
+- poder asimilar todas las herramienta que existen en Django y HTML
+
 
 
 
