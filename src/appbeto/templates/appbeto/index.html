@@ -34,14 +34,14 @@
                 <tbody>
                     {% for indice in id_blog %}
                         <tr>
-                            <td>{{ indice.icono }}</td>
+                            <td> <img src="media/{{ indice.icono }}" width="30" height="30"/> </td>
                             <td>{{ indice.categoria }}</td>
                             <td>{{ indice.titulo }}</td>
                             <td>{{ indice.fecha }}</td>
                             <td>{{ indice.nick }}</td>
                             <td>
                                 <button>
-                                    <a href="{% url 'appbeto:familiar_borrar' indice.id %}"> Visitar</a>
+                                    <a href="https://www.coderhouse.com/us/"> Visitar</a>
                                 </button>
                                 <button>
                                     <a href="{% url 'appbeto:misblog_edit' indice.id %}"> Modificar</a>
