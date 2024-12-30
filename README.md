@@ -23,8 +23,7 @@
 
 ## Puntos a Mejorar
 - Interfaz grafica con más animaciones y graficas. La verdad es que esta parte de imaginación y desarrollo gráfico no es mi fortaleza :-)
-- Seguir profundizando en Python, con el desarrollo de este proyecto me di cuenta de que debo seguir practicando mucho mas para
-- poder asimilar todas las herramienta que existen en Django y HTML
+- Seguir profundizando en Python, con el desarrollo de este proyecto me di cuenta de que debo seguir practicando mucho mas para poder asimilar todas las herramienta que existen en Django y HTML
 
 
 
